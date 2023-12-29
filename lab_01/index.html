@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="description" content="Notas de tecnología" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      /* .nota:hover img {
+        width: 400px;
+      } */
+      .nota img {
+        border-radius: 10px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      body {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        gap: 20px;
+        padding: 50px;
+      }
+      body > * {
+        width: 100%;
+      }
+      .nota {
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Blog</h1>
+    <p>Notas de tecnología</p>
+    <div id="contenedo-de-notas">
+      <div class="nota">
+        <img
+          src="https://techcrunch.com/wp-content/uploads/2022/07/0720_zoox-8.jpg"
+          width="300px"
+        />
+        <h2 title="Nota">ZOOX</h2>
+        <p>Robotaxi</p>
+      </div>
+      <div class="nota">
+        <img
+          src="https://hips.hearstapps.com/hmg-prod/images/cybertruck-flip-la-1574556398.jpg"
+          width="300px"
+        />
+        <h2>Cybertruck</h2>
+        <p>Camioneta Tesla</p>
+      </div>
+    </div>
+  </body>
+</html>

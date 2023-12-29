@@ -1,0 +1,45 @@
+<!-- TODO [x]: 1. Crear un div #padre con 11 .hijos -->
+<!-- TODO [x]: 2. El #padre debe ser una grilla de 4 columnas utilizando función repeat -->
+<!-- TODO [x]: 2.1. Debe ser una grilla responsiva -->
+<!-- TODO [x]: 2.2. Cada columna debe tener un mínimo de 250px y máximo automático -->
+<!-- TODO [x]: 3. Los .hijos debe tener un alto de 250px -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+      #padre {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+        gap: 10px;
+        background-color: black;
+      }
+      .hijo {
+        background-color: aquamarine;
+        height: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="padre">
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+    </div>
+  </body>
+</html>

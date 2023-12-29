@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      #padre {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 280px));
+        gap: 10px;
+        padding: 150px;
+        background-color: black;
+        justify-content: center;
+      }
+      .hijo {
+        background-color: white;
+        border-radius: 20px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="padre">
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+    </div>
+  </body>
+</html>

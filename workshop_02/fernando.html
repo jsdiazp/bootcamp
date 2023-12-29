@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --columns: 4;
+        --gap: 20px;
+        --border-radius: 20px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      body {
+        padding: 40px 80px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap);
+        background-color: black;
+      }
+      #contenedor-de-productos {
+        width: 100%;
+        background-color: grey;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        padding: 20px 20px;
+        gap: 20px;
+        border-radius: var(--border-radius);
+      }
+      h1 {
+        background-color: grey;
+        color: white;
+        padding: 10px;
+        border-radius: calc(var(--border-radius) / 2);
+        text-align: center;
+      }
+      .producto {
+        background-color: lightgrey;
+        text-align: center;
+        flex-basis: calc(1000px / var(--columns));
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--gap);
+        padding: 20px 20px;
+        flex-grow: 1;
+      }
+      .producto img {
+        background-color: white;
+        width: 100%;
+        border-radius: calc(var(--border-radius) / 2);
+      }
+      .producto-texto {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--gap) / 2);
+        padding: 10px 20px;
+        border-radius: calc(var(--border-radius) / 2);
+      }
+      .producto-texto > p {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Catálogo de Productos</h1>
+    <div id="contenedor-de-productos">
+      <div class="producto">
+        <div class="produducto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="producto">
+        <div class="producto-imagen">
+          <img
+            src="https://exitocol.vtexassets.com/arquivos/ids/15551176/celular-iphone-14-pro-128gb-5g-morado.jpg?v=638043199659600000"
+            alt=""
+          />
+        </div>
+        <div class="producto-texto">
+          <h2>Producto 1</h2>
+          <h3>Tecnología</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

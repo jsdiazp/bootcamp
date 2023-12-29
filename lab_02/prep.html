@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root {
+        --columns: 3;
+        --gap: 10px;
+        --column-width: calc(
+          ((100% + var(--gap)) / var(--columns)) - var(--gap)
+        );
+        --columns-min-width: 200px;
+      }
+
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      #padre {
+        display: flex;
+        gap: var(--gap);
+        flex-wrap: wrap;
+      }
+
+      .hijo {
+        background-color: blue;
+        width: var(--column-width);
+        min-width: var(--columns-min-width);
+        height: 100px;
+      }
+
+      .hijo:nth-child(1) {
+        --span: 3;
+        width: calc(
+          (var(--column-width) + var(--gap)) * (var(--span)) - var(--gap)
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div id="padre">
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+    </div>
+  </body>
+</html>

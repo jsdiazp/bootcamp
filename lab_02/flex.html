@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flex 2</title>
+    <style>
+      :root {
+        --columnas: 5;
+        --gap: 20px;
+      }
+      :root,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      #padre {
+        display: flex;
+        gap: var(--gap);
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-content: center;
+      }
+      .hijo {
+        min-width: 200px;
+        width: calc(
+          (100% - (var(--columnas) * var(--gap)) + var(--gap)) / var(--columnas)
+        );
+        background-color: purple;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="padre">
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+      <div class="hijo"></div>
+    </div>
+  </body>
+</html>
