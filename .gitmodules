@@ -1,3 +1,6 @@
 [submodule "lab_09"]
-	path = lab_09
-	url = https://github.com/jsdiazp/lab_09.git
+path = lab_09
+url = https://github.com/jsdiazp/lab_09.git
+[submodule "extra_lab_07"]
+path = extra_lab_07
+url = https://github.com/jsdiazp/git.git
