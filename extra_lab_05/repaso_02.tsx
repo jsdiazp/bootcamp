@@ -139,7 +139,10 @@ type ServicioProps = {
   precio: number;
 };
 
-const Servicio = ({ nombre, precio }: ServicioProps) => {
+// @ts-ignore
+type Component<Props extends Object> = (props: Props) => React.ReactNode;
+
+const Servicio: Component<ServicioProps> = ({ nombre, precio }) => {
   return (
     <div>
       <div>{nombre}</div>

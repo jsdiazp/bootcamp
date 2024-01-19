@@ -5,6 +5,13 @@
  */
 
 /**
+ * Paréntesis ()
+ * Corchete []
+ * Llaves {}
+ * Corchete angular <>
+ */
+
+/**
  * Datos
  *
  * - Información que utiliza el lenguaje de programación para seguir instrucciones
@@ -111,7 +118,6 @@ const id = 5948209580432;
  * Modificación de conjuntos de datos
  */
 let dispositivosElectronicos = ["Xiaomi Mi 9", "MacBook Pro", "Amazfit Band 5"];
-dispositivosElectronicos.splice(0, 1);
 console.log(dispositivosElectronicos);
 
 /**
@@ -221,16 +227,18 @@ let usuario2 = {
 };
 
 /**
- * 1. Declara una variable con nombre teléfono que almacene el siguiente objeto:
+ * Ejercicio Nº 2.1
+ *
+ * 1. Declara una variable con nombre 'teléfono' que almacene el siguiente objeto:
  * - puedeLlamar: verdad;
  * - puedeRecibirLlamada: verdad;
  * - tieneGPS: verdad;
- * 2. Declarar una variable con nombre iPhone que almacene el siguiente objeto:
+ * 2. Declarar una variable con nombre 'iPhone' que almacene el siguiente objeto:
  * - extender variable teléfono
  * - referencia: 15 pro max
  * - añoDeCompra: 2023
  * - precio: 6_000_000
- * 3. Imprimir en la consola la variable con nombre iPhone
+ * 3. Imprimir en la consola la variable con nombre 'iPhone'
  */
 
 /**
@@ -287,15 +295,17 @@ console.log(persona3.pais !== "Corea del Norte");
 console.log(persona3.rol !== "admin");
 
 /**
- * 1. Declarar una variable con nombre niño1 que almacene el siguiente objeto:
+ * Ejercicio Nº 3.1
+ *
+ * 1. Declarar una variable con nombre 'niño1' que almacene el siguiente objeto:
  * - edad (número): 12
  * - pesoKg (número): 40
  * - nombre (cadena de texto): John
  * - apellido (cadena de texto): Hernandez
  *
  * 2. Realizar las siguientes comparaciones e imprimirlas en la consola:
- * - es el peso del niño1 menor o igual a 30
- * - es la edad del niño1 mayor o igual a 12
+ * - es el peso del 'niño1' menor o igual a 30
+ * - es la edad del 'niño1' mayor o igual a 12
  */
 
 /**
@@ -488,10 +498,12 @@ if (viajero2.edad >= 18 && viajero2.categoria === "platino") {
 }
 
 /**
- * 1. Declara una variable con nombre visitante1 que almacene el siguiente objeto:
+ * Ejercicio Nº 5.1
+ *
+ * 1. Declara una variable con nombre 'visitante1' que almacene el siguiente objeto:
  * - santoYSeña (string): lasvacasvuelanenelrocio
  * 2. Evaluar las siguientes condiciones:
- * - Si el santoYSeña del visitante1 es igual a lasvacasvuelanenelrocio imprimir en la consola: puedes ingresar
+ * - Si el santoYSeña del 'visitante1' es igual a "lasvacasvuelanenelrocio" imprimir en la consola: puedes ingresar
  * - De lo contrario imprimir en la consola: Santo y seña invalido, no puedes ingresar
  */
 
@@ -537,10 +549,10 @@ esEditor(joan);
   // ejecuta las instrucciones almacenadas
   if (usuario.rol === "editor") {
     console.log("Puedes ingresar para crear publicaciones");
-    return true;
+    // return true;
   } else {
     console.log("No puedes ingresar a crear publicaciones");
-    return false;
+    // return false;
   }
 }
 
@@ -565,16 +577,16 @@ multiplicar(dato1, dato2);
 }
 
 /**
- * Ejercicio Nº 1
+ * Ejercicio Nº 6.1
  *
- * 1. Declarar en JavaScript una función con nombre puedeIngresarAlParqueadero,
+ * 1. Declarar una función con nombre 'puedeIngresarAlParqueadero',
  * la función debe contener lo siguiente:
  *
  * Parámetros (camelCase):
  * - residente
  *
  * Instrucciones:
- * - Si el parámetro residente tiene una llave con nombre códigoDeParquedero y
+ * - Si el parámetro residente tiene una llave con nombre 'códigoDeParquedero' y
  * es un número mayor a 100 realizar las siguiente instrucciones:
  *   * Imprimir en la consola: puede ingresar
  *   * Retornar verdadero (booleano)
@@ -582,15 +594,15 @@ multiplicar(dato1, dato2);
  *   * Imprimir en la consola: acceso no autorizado
  *   * Retornar falso (booleano)
  *
- * 2. Declarar una variable constante con nombre residente1 que almacene un objeto con las siguientes
+ * 2. Declarar una variable constante con nombre 'residente1' que almacene un objeto con las siguientes
  * llaves (camelCase) y sus respectivos datos:
  * - nombre (string): Pedro
  * - apellido (string): Molina
  * - código de parqueadero: 329039
  *
- * 3. Ejecutar la función puedeIngresarAlParqueadero pasando como parámetro la variable constante residente1
+ * 3. Ejecutar la función 'puedeIngresarAlParqueadero' pasando como parámetro la variable constante 'residente1'
  *
- * 4. Ejecutar la función puedeIngresarAlParqueadero pasando como parámetro un objeto con
+ * 4. Ejecutar la función 'puedeIngresarAlParqueadero' pasando como parámetro un objeto con
  * las siguientes llaves (camelCase) y sus respectivos datos:
  * - nombre (string): Mary
  * - apellido (string): Molina
@@ -599,9 +611,9 @@ multiplicar(dato1, dato2);
  */
 
 /**
- * Ejercicio Nº 2
+ * Ejercicio Nº 6.2
  *
- * 1. Declarar una función con nombre (camelCase) queIngredientes, la función debe contener lo siguiente:
+ * 1. Declarar una función con nombre (camelCase) 'queIngredientes', la función debe contener lo siguiente:
  *
  * Parámetros (camelCase):
  * - receta
@@ -621,43 +633,43 @@ multiplicar(dato1, dato2);
  * - De lo contrario realizar la siguiente instrucción:
  *   * Imprimir en la consola: la receta no se encuentra almacenada
  *
- * 2. Ejecutar la función queIngredientes pasando como parámetro el string: "piña colada"
+ * 2. Ejecutar la función 'queIngredientes' pasando como parámetro el string: "piña colada"
  *
- * 3. Ejecutar la función queIngredientes pasando como parámetro el string: "huevos en perico"
+ * 3. Ejecutar la función 'queIngredientes' pasando como parámetro el string: "huevos en perico"
  *
- * 4. Ejecutar la función queIngredientes pasando como parámetro el string: "ensalada cesar"
+ * 4. Ejecutar la función 'queIngredientes' pasando como parámetro el string: "ensalada cesar"
  */
 
 /**
- *  Ejercicio Nº 3
+ *  Ejercicio Nº 6.3
  *
- *  1. Declarar una función con nombre (camelCase) `esMultiploDe`, la función debe contener lo siguiente:
+ *  1. Declarar una función con nombre (camelCase) 'esMultiploDe', la función debe contener lo siguiente:
  *
  *  Parámetros (camelCase):
  *  - numero
  *  - multiplo
  *
  *  Instrucciones:
- *  - Si el parámetro `numero` es múltiplo del parámetro `multiplo`, realizar la siguiente instrucción:
+ *  - Si el parámetro `numero` es múltiplo del parámetro 'multiplo', realizar la siguiente instrucción:
  *    * Retornar verdadero (booleano)
  *  - De lo contrario realizar las siguientes instrucciones:
  *    * Retornar falso (booleano)
  *
- *  2. Ejecutar la función `esMultiploDe` pasando como parámetros los siguientes valores:
+ *  2. Ejecutar la función 'esMultiploDe' pasando como parámetros los siguientes valores:
  *  - numero: 15
  *  - multiplo: 3
  *
- *  3. Ejecutar la función `esMultiploDe` pasando como parámetros los siguientes valores:
+ *  3. Ejecutar la función 'esMultiploDe' pasando como parámetros los siguientes valores:
  *  - numero: 20
  *  - multiplo: 7
  *
- *  4. Ejecutar la función `esMultiploDe` pasando como parámetros los siguientes valores:
+ *  4. Ejecutar la función 'esMultiploDe' pasando como parámetros los siguientes valores:
  *  - numero: 100
  *  - multiplo: 10
  */
 
 /**
- * Ejercicio Nº 4
+ * Ejercicio Nº 6.4
  *
  * 1. Crear una función llamada (camelCase) 'catalogo', la función debe contener lo siguiente:
  *
@@ -723,7 +735,7 @@ multiplicar(dato1, dato2);
  */
 
 /**
- * Ejercicio Nº 5
+ * Ejercicio Nº 6.5
  *
  * 1. Crear una función llamada (camelCase) 'pagoDenegado', la función debe contener lo siguiente:
  *
