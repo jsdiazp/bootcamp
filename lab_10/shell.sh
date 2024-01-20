@@ -11,7 +11,7 @@ fi
 
 ## Fedora, CentOS, or Red Hat
 if [[ "$(uname -s)" == Linux* ]] && command -v yum >/dev/null; then
-  sudo yarn update
+  sudo yum update
   sudo yum install zsh
 fi
 
@@ -82,11 +82,19 @@ fi
 
 ## Configuración
 echo '# Hombebrew' >>~/.zshrc
+case "$(uname -m)" in
+  Darwin*)
+    arm64 | aarch64)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    ;;
+    x86_64)
+    eval "$(/usr/local/homebrew/bin/brew shellenv)"
+    ;;
+  Linux*)
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  ;;
+esac
 echo "eval \"\$($HOMEBREW_REPOSITORY/bin/brew shellenv)\"\n" >>~/.zshrc
-eval "$($HOMEBREW_REPOSITORY/bin/brew shellenv)"
-
-# fzf (ihttps://github.com/junegunn/fzf)
-# Mejora la funcionalidad de <C-r> y <C-t>
 
 # Starship (https://starship.rs)
 # Mejora el prompt (interfaz de entrada) de la consola
@@ -117,6 +125,9 @@ if [[ "$(uname -s)" == Linux* ]]; then
   echo '# bat' >>~/.zshrc
   echo 'alias bat=batcat\n' >>~/.zshrc
 fi
+
+# fzf (ihttps://github.com/junegunn/fzf)
+# mejora la funcionalidad de <C-r> y <C-t>
 
 ## Instalación
 brew install fzf
