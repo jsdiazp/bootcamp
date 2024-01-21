@@ -2,6 +2,11 @@
 source $VIMRUNTIME/defaults.vim " Llama la configuración predefinida de VIM
 set nocompatible " Inhabilita la compatibilidad con vi
 
+" Explorador
+let g:netrw_liststyle=3 " Selecciona su estilo árbol
+let g:netrw_preview=1 " Mostrar la previsualización en división vertical
+let g:netrw_winsize=30 " Define su tamaño
+
 " Interfaz
 colorscheme wildcharm " Configurar paleta de colores, recomendados: habamax, pablo, slate y wildcharm
 syntax on " Resalta el código
