@@ -8,13 +8,13 @@
 ### Debian o Ubuntu
 if [[ "$(uname -s)" == Linux* ]] && command -v apt >/dev/null; then
   sudo apt update
-  sudo apt install zsh
+  sudo apt install -y zsh
 fi
 
 ### Fedora, CentOS, o Red Hat
 if [[ "$(uname -s)" == Linux* ]] && command -v yum >/dev/null; then
   sudo yum update
-  sudo yum install zsh
+  sudo yum install -y zsh
 fi
 
 # Oh My Zsh (https://ohmyz.sh/)
@@ -62,23 +62,23 @@ esac
 # Gestor de paquetes
 
 ## Pre-configuración
-[[ -e $HOMEBREW_PREFIX ]] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+[[ -e $HOMEBREW_PREFIX ]] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" -y
 
 ## Requerimientos (https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
 ### Debian o Ubuntu
 if [[ "$(uname -s)" == Linux* ]] && command -v apt >/dev/null; then
-  sudo apt install build-essential procps curl file git
+  sudo apt install -y build-essential procps curl file git
 fi
 
 ### Fedora, CentOS, o Red Hat
 if [[ "$(uname -s)" == Linux* ]] && command -v yum >/dev/null; then
-  sudo yum groupinstall 'Development Tools'
-  sudo yum install procps-ng curl file git
+  sudo yum groupinstall -y 'Development Tools'
+  sudo yum install -y procps-ng curl file git
 fi
 
 ## Instalación
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" -y
 
 ## Configuración
 echo '# Hombebrew' >>~/.zshrc
@@ -138,7 +138,7 @@ brew install fzf
 ## Configuración
 echo '# fzf' >>~/.zshrc
 echo '[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh' >>~/.zshrc
-$HOMEBREW_PREFIX/opt/fzf/install
+$HOMEBREW_PREFIX/opt/fzf/install --all
 
 # zoxide (https://github.com/ajeetdsouza/zoxide)
 # Comando cd más inteligente, inspirado en z y autojump
