@@ -147,6 +147,7 @@ Los comando se deben ingresar en el modo NORMAL, oprimiendo primero ':'
 - set softtabstop=2 " <Espacio> que toma un <Tab> en una edición, ejemplo <Tab> o <BS>
 - set shiftwidth=2 " <Espacio> que toma un <Tab> en (auto)indentado
 - set smartindent " Activa indentado inteligente
+- set autoindent " Copia el indentado de la línea actual
 
 [Volver](#tabla-de-contenido)
 

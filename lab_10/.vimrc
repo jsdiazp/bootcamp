@@ -10,7 +10,7 @@ let g:netrw_winsize=25 " Define su tamaño
 let g:netrw_keepdir=0 " Mantiene el directorio de apertura
 
 " Interfaz
-colorscheme wildcharm " Configurar paleta de colores, recomendados: habamax, pablo, slate, sorbet, wildcharm y zaibatsu
+colorscheme habamax " Configurar paleta de colores, recomendados: habamax, pablo, slate, sorbet, wildcharm y zaibatsu
 syntax on " Resalta el código
 set background=dark " Muestra el fondo de color negro
 set mouse=a " Habilita el uso del mouse
@@ -39,4 +39,4 @@ set softtabstop=2 " <Espacio> que toma un <Tab> en una edición, ejemplo <Tab> o
 set shiftwidth=2 " <Espacio> que toma un <Tab> en (auto)indentado
 set backspace=2 " Influencia el funcionamiento de <BS>, <Del>, CTRL-W y CTRL-U en modo INSERTAR
 set smartindent " Activa indentado inteligente
-set autoindent " Indenta según la línea actual
+set autoindent " Copia el indentado de la línea actual
