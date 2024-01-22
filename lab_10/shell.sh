@@ -150,6 +150,11 @@ brew install zoxide
 echo '# zoxide'
 echo 'eval "$(zoxide init zsh)"' >>~/.zshrc
 
+# Vim
+
+## Configuración
+wget https://raw.githubusercontent.com/jsdiazp/bootcamp/HEAD/lab_10/.vimrc -O ~/.vimrc
+
 # Activar shell zsh
 chsh -s /bin/zsh
 source ~/.zshrc
