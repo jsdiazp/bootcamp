@@ -3,13 +3,15 @@
 
 # ZSH
 
-## Debian or Ubuntu
+## Instalación
+
+### Debian o Ubuntu
 if [[ "$(uname -s)" == Linux* ]] && command -v apt >/dev/null; then
   sudo apt update
   sudo apt install zsh
 fi
 
-## Fedora, CentOS, or Red Hat
+### Fedora, CentOS, o Red Hat
 if [[ "$(uname -s)" == Linux* ]] && command -v yum >/dev/null; then
   sudo yum update
   sudo yum install zsh
@@ -23,11 +25,11 @@ fi
 [[ -e ~/.zshrc ]] && rm ~/.zshrc
 [[ -e ~/.zprofile ]] && rm -rf ~/.zprofile
 
-# Instalación
+## Instalación
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # ZSH Autosuggestions (https://github.com/zsh-users/zsh-autosuggestion)
-# Sugiere autocompletados
+# Sugiere comandos a medida que se escribe basándose en el historial y en los completados
 
 ## Instalación
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -37,7 +39,7 @@ echo '\n# ZSH Autosuggestions' >>~/.zshrc
 echo 'ZSH_AUTOSUGGEST_STRATEGY=(history completion)\n' >>~/.zshrc
 
 # ZSH Syntax Hightlighting (https://github.com/zsh-users/zsh-syntax-highlighting)
-# Resalta del texto
+# Resaltado de comandos
 
 ## Instalación
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -59,23 +61,21 @@ esac
 # Homebrew (https://brew.sh)
 # Gestor de paquetes
 
-## Preconfiguración
+## Pre-configuración
 [[ -e $HOMEBREW_PREFIX ]] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 
 ## Requerimientos (https://docs.brew.sh/Homebrew-on-Linux#requirements)
 
-### Debian or Ubuntu
+### Debian o Ubuntu
 if [[ "$(uname -s)" == Linux* ]] && command -v apt >/dev/null; then
   sudo apt install build-essential procps curl file git
 fi
 
-### Fedora, CentOS, or Red Hat
+### Fedora, CentOS, o Red Hat
 if [[ "$(uname -s)" == Linux* ]] && command -v yum >/dev/null; then
   sudo yum groupinstall 'Development Tools'
   sudo yum install procps-ng curl file git
 fi
-
-## Requerimientos
 
 ## Instalación
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -97,7 +97,7 @@ esac
 echo "eval \"\$($HOMEBREW_REPOSITORY/bin/brew shellenv)\"\n" >>~/.zshrc
 
 # Starship (https://starship.rs)
-# Mejora el prompt (interfaz de entrada) de la consola
+# Mejora el prompt (interfaz de entrada) de la terminal
 
 ## Instalación
 brew install starship
@@ -107,7 +107,7 @@ echo '# Starship' >>~/.zshrc
 echo 'eval "$(starship init zsh)"\n' >>~/.zshrc
 
 # The Fuck (https://github.com/nvbn/thefuck)
-# Recomienda correcciones
+# Sugiere correcciones en comando previo
 
 ## Instalación
 brew install thefuck
@@ -126,15 +126,26 @@ if [[ "$(uname -s)" == Linux* ]]; then
   echo 'alias bat=batcat\n' >>~/.zshrc
 fi
 
-# fzf (ihttps://github.com/junegunn/fzf)
-# mejora la funcionalidad de <C-r> y <C-t>
+# fzf (https://github.com/junegunn/fzf)
+# Mejora la funcionalidad de <C-r> y <C-t>
 
 ## Instalación
 brew install fzf
 
 ## Configuración
 echo '# fzf' >>~/.zshrc
+echo '[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh' >>~/.zshrc
 $HOMEBREW_PREFIX/opt/fzf/install
+
+# zoxide (https://github.com/ajeetdsouza/zoxide)
+# Comando cd más inteligente, inspirado en z y autojump
+
+## Instalación
+brew install zoxide
+
+## Configuración
+echo '# zoxide'
+echo 'eval "$(zoxide init zsh)"' >>~/.zshrc
 
 # Activar shell zsh
 chsh -s /bin/zsh
