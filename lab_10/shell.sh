@@ -82,15 +82,18 @@ fi
 
 ## Configuración
 echo '# Hombebrew' >>~/.zshrc
-case "$(uname -m)" in
-  Darwin*)
-    arm64 | aarch64)
+case "$(uname -s)" in
+Darwin*)
+  case "$(uname -m)" in
+  arm64 | aarch64)
     eval "$(/opt/homebrew/bin/brew shellenv)"
     ;;
-    x86_64)
+  x86_64)
     eval "$(/usr/local/homebrew/bin/brew shellenv)"
     ;;
-  Linux*)
+  esac
+  ;;
+Linux*)
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   ;;
 esac

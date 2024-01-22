@@ -37,4 +37,6 @@ set expandtab " Convierte <Tab> en <Espacio>
 set tabstop=2 " <Espacio> que toma un <Tab>
 set softtabstop=2 " <Espacio> que toma un <Tab> en una edición, ejemplo <Tab> o <BS>
 set shiftwidth=2 " <Espacio> que toma un <Tab> en (auto)indentado
+set backspace=2 " Influencia el funcionamiento de <BS>, <Del>, CTRL-W y CTRL-U en modo INSERTAR
 set smartindent " Activa indentado inteligente
+set autoindent " Indenta según la línea actual
