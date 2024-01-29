@@ -1,8 +1,43 @@
+" vim-plug
+
+" Instalar vim-plug si no se encuentra
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Ejecutar PlugInstall si faltan plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" Plugins
+call plug#begin()
+
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
+Plug 'liuchengxu/vim-which-key'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+
+call plug#end()
+
 " Requerido
 source $VIMRUNTIME/defaults.vim " Llama la configuración predefinida de VIM
 set nocompatible " Inhabilita la compatibilidad con vi
+set hidden " Oculta el buffer cuando se abandona, manteniendo los cambios
+set undofile " Guarda el historial de cambios en un archivo
+set spell " Activa la corrección ortográfica
+set spelllang=en,es " Corrección ortográfica para español e inglés
+set encoding=utf-8
+let g:mapleader = "\<Space>"
+set timeoutlen=500
 
-" Explorador
+" Netrw
 let g:netrw_liststyle=3 " Selecciona el estilo de árbol
 let g:netrw_preview=1 " Mostrar la previsualización en división vertical
 let g:netrw_browse_split=4 " Abre los archivos en la última ventana abierta
@@ -10,8 +45,10 @@ let g:netrw_winsize=25 " Define su tamaño
 let g:netrw_keepdir=0 " Mantiene el directorio de apertura
 
 " Interfaz
-colorscheme habamax " Configurar paleta de colores, recomendados: habamax, pablo, slate, sorbet, wildcharm y zaibatsu
 syntax on " Resalta el código
+colorscheme catppuccin_mocha " Configurar paleta de colores, recomendados: catppuccin_mocha, habamax, pablo, slate, sorbet, wildcharm y zaibatsu
+set termguicolors
+set confirm " Muestra un dialogo solicitando confirmación ante operaciones que normalmente fallarían. Ej.: ':q' y ':e'
 set background=dark " Muestra el fondo de color negro
 set mouse=a " Habilita el uso del mouse
 set number " Muestra el número de cada línea
@@ -27,10 +64,16 @@ set listchars=leadmultispace:│\ ,tab:│\ ,trail:· " Muestra ( ¦ | ┊ | │
 set laststatus=2 " Muestra siempre la barra de estado
 set hlsearch " Resalta las coincidencias de la búsqueda
 set incsearch " Resalta las coincidencias mientras se ingresa la palabra buscada
+set noshowmode " No muestra el modo de edición para evitar repetición con 'lightline'
+
+" Colores
+highlight Normal guibg=NONE " Color de fondo transparente
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight SpecialKey ctermbg=NONE ctermfg=NONE guifg=#45475A term=NONE
 
 " Búsqueda
 set ignorecase " Ignora mayúsculas y minúsculas
-set smartcase " Solo ignora las máyusculas y minúscula si todas las letras son minúsculas
+set smartcase " Solo ignora las mayúsculas y minúscula si todas las letras son minúsculas
 
 " Indentación
 set expandtab " Convierte <Tab> en <Espacio>
@@ -40,3 +83,18 @@ set shiftwidth=2 " <Espacio> que toma un <Tab> en (auto)indentado
 set backspace=2 " Influencia el funcionamiento de <BS>, <Del>, CTRL-W y CTRL-U en modo INSERTAR
 set smartindent " Activa indentado inteligente
 set autoindent " Copia el indentado de la línea actual
+
+" Plegado
+set foldmethod=syntax " Plegado basado en la sintaxis
+set foldlevelstart=99 " No pliega nada al abrir un archivo
+
+" Desplazamiento
+set scrolloff=10
+
+" Configuración de plugins
+source ~/.config/vim/plugins/ale.vim
+source ~/.config/vim/plugins/lightline.vim
+source ~/.config/vim/plugins/vim-devicons.vim
+source ~/.config/vim/plugins/vim-which-key.vim
+source ~/.config/vim/plugins/coc.vim
+
