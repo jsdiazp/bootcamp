@@ -1,0 +1,27 @@
+.gap {
+  gap: 25px;
+}
+
+.container {
+  gap: 30px;
+
+  .message {
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 600;
+  }
+}
+
+@media (width < 950px) {
+  /* .container > div:nth-child(2) { */
+  /* .container > .main { */
+  /* .main */
+  .container {
+    .message {
+      font-size: 40px !important;
+    }
+    .main {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+#__next {
+  width: 100%;
+}
+
+#__next {
+  display: flex;
+  justify-content: center;
+}
+
+.parent-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.parent-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.child-row {
+}
+
+.child-column {
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+#container {
+  max-width: 1600px;
+  width: 100%;
+}
+
+@media (width < 950px) {
+  #container {
+    padding: 40px !important;
+  }
+}

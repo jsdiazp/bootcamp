@@ -1,0 +1,23 @@
+.container {
+  padding: 45px;
+  background-color: #b8d3d8;
+  border-radius: 40px;
+  gap: 12px;
+  align-items: flex-start;
+
+  .category {
+    padding: 13px 19px;
+    border: 1px solid black;
+    border-radius: 100px;
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .callToAction {
+    font-size: 15px;
+    text-decoration: underline;
+  }
+}

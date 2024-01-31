@@ -1,0 +1,26 @@
+.leftColumn {
+  gap: 50px;
+  align-items: center;
+
+  .links {
+    gap: 25px;
+  }
+
+  .brand {
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 600;
+  }
+}
+
+.menu {
+  padding: 13px 25px;
+  border: 1px solid black;
+  border-radius: 100px;
+}
+
+@media (width < 950px) {
+  .links {
+    display: none;
+  }
+}
