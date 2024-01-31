@@ -21,8 +21,11 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'liuchengxu/vim-which-key'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -31,26 +34,33 @@ source $VIMRUNTIME/defaults.vim " Llama la configuración predefinida de VIM
 set nocompatible " Inhabilita la compatibilidad con vi
 set hidden " Oculta el buffer cuando se abandona, manteniendo los cambios
 set undofile " Guarda el historial de cambios en un archivo
+set autoread " Cuando se detecta el cambio de un archivo fuera de Vim y este no ha sido cambiado dentro de Vim, automáticamente se lee de nuevo el archivo
 set spell " Activa la corrección ortográfica
 set spelllang=en,es " Corrección ortográfica para español e inglés
-set encoding=utf-8
+set encoding=utf-8 " Establece la codificación de caracteres utilizada en Vim
+set timeoutlen=500 " Estable el tiempo en milisegundos que se espera para completar un código de tecla o un secuencia de teclas
 let g:mapleader = "\<Space>"
-set timeoutlen=500
 
 " Netrw
-let g:netrw_liststyle=3 " Selecciona el estilo de árbol
-let g:netrw_preview=1 " Mostrar la previsualización en división vertical
-let g:netrw_browse_split=4 " Abre los archivos en la última ventana abierta
-let g:netrw_winsize=25 " Define su tamaño
-let g:netrw_keepdir=0 " Mantiene el directorio de apertura
+" let g:netrw_liststyle=3 " Selecciona el estilo de árbol
+" let g:netrw_preview=1 " Mostrar la previsualización en división vertical
+" let g:netrw_browse_split=4 " Abre los archivos en la última ventana abierta
+" let g:netrw_winsize=25 " Define su tamaño
+" let g:netrw_keepdir=0 " Mantiene el directorio de apertura
+" inoremap <c-b> <Esc>:Lex<cr>:vertical resize 30<cr>
+" nnoremap <c-b> <Esc>:Lex<cr>:vertical resize 30<cr>
 
 " Interfaz
 syntax on " Resalta el código
 colorscheme catppuccin_mocha " Configurar paleta de colores, recomendados: catppuccin_mocha, habamax, pablo, slate, sorbet, wildcharm y zaibatsu
 set termguicolors
+if !has('gui_running')
+  set t_Co=256
+endif
 set confirm " Muestra un dialogo solicitando confirmación ante operaciones que normalmente fallarían. Ej.: ':q' y ':e'
 set background=dark " Muestra el fondo de color negro
 set mouse=a " Habilita el uso del mouse
+set ttymouse=sgr
 set number " Muestra el número de cada línea
 set relativenumber " Muestra el número de línea relativo a la posición del cursor
 set showcmd " Muestra en la parte inferior derecho el comando utilizado
@@ -70,6 +80,7 @@ set noshowmode " No muestra el modo de edición para evitar repetición con 'lig
 highlight Normal guibg=NONE " Color de fondo transparente
 highlight SignColumn guibg=NONE ctermbg=NONE
 highlight SpecialKey ctermbg=NONE ctermfg=NONE guifg=#45475A term=NONE
+highlight VertSplit term=reverse ctermfg=243 ctermbg=243 guifg=#2C323D guibg=#2C323D
 
 " Búsqueda
 set ignorecase " Ignora mayúsculas y minúsculas
@@ -89,12 +100,13 @@ set foldmethod=syntax " Plegado basado en la sintaxis
 set foldlevelstart=99 " No pliega nada al abrir un archivo
 
 " Desplazamiento
-set scrolloff=10
+set scrolloff=10 " Establece el número mínimo de líneas en pantalla a mantener encima y debajo del cursor
 
 " Configuración de plugins
 source ~/.config/vim/plugins/ale.vim
 source ~/.config/vim/plugins/lightline.vim
 source ~/.config/vim/plugins/vim-devicons.vim
 source ~/.config/vim/plugins/vim-which-key.vim
+source ~/.config/vim/plugins/nerdtree.vim
 source ~/.config/vim/plugins/coc.vim
 
