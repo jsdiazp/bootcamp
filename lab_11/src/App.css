@@ -4,6 +4,14 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+body,
+#root {
+  width: 100%;
+}
+#root {
+  display: flex;
+  justify-content: center;
+}
 .parent-row {
   display: flex;
   flex-direction: row;
@@ -19,13 +27,9 @@
 .flex-grow {
   flex-grow: 1;
 }
-body {
+#container {
   max-width: 1600px;
   width: 100%;
-}
-html {
-  display: flex;
-  justify-content: center;
 }
 
 @media (width < 950px) {
@@ -47,7 +51,7 @@ html {
   #secondary-card-2 .see-more {
     font-size: 18px !important;
   }
-  body {
+  #container {
     padding: 40px !important;
   }
 }

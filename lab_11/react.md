@@ -5,6 +5,11 @@ Framework (marco) de TypeScript/JavaScript para desarrollo web
 ## Tabla de contenido
 
 - [Beneficios](#beneficios)
+- [Instalación](#instalación)
+- [Limpieza](#limpieza)
+- [Componentes](#componentes)
+- [Recomendaciones](#recomendaciones)
+- [Glosario](#glosario)
 
 ## Beneficios
 
@@ -59,6 +64,40 @@ const [count, setCount] = useState(0)
 
 - shared
 - components
+
+## Componentes
+
+### Uso
+
+#### Alternativa 1
+
+*Recomendado*
+
+```tsx
+<MainCard
+  categoría="Automóviles"
+  fecha="Dic 7, 2023"
+  título="Rivian anuncia furgoneta comercial en EE.UU."
+/>
+```
+
+#### Alternativa 2
+
+```tsx
+MainCard({
+  categoría: "Automóviles",
+  fecha: "Dic 7, 2023",
+  título: "Rivian anuncia furgoneta comercial en EE.UU.",
+})
+```
+
+### Código TypeScript/JavaScript dentro del HTML de un componente
+
+```tsx
+const nombre: string = "Joan"
+
+return <div>{nombre}</div>
+```
 
 ## Glosario
 

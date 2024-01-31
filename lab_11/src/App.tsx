@@ -1,27 +1,24 @@
 import "./App.css";
-import MainCard from "./components/MainCard";
+import Header from "./sections/Header";
+import Hero from "./sections/Hero";
 
 function App() {
   return (
     <>
-      {/* 
-        Formas de importar un componente
-
-        Forma 1 (No recomendada) 
-      */}
-      {MainCard({
-        categoría: "Automóviles",
-        fecha: "Dic 7, 2023",
-        título: "Rivian anuncia furgoneta comercial en EE.UU.",
-      })}
-      {/* 
-        Forma 2  
-      */}
-      <MainCard
-        categoría="Automóviles"
-        fecha="Dic 7, 2023"
-        título="Rivian anuncia furgoneta comercial en EE.UU."
-      />
+      <div
+        id="container"
+        className="parent-column"
+        style={{ padding: 60, gap: 40 }}
+      >
+        <Header
+          brand="TechBlog."
+          links={[
+            { url: "#", name: "Artículos" },
+            { url: "#", name: "Ser escritor" },
+          ]}
+        />
+        <Hero />
+      </div>
     </>
   );
 }
