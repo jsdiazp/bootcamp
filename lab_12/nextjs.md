@@ -2,6 +2,15 @@
 
 Marco de React
 
+## Tabla de contenido
+
+- [Beneficios](#beneficios)
+- [Instalación](#instalación)
+- [Parámetros](#parámetros)
+- [Limpieza](#limpieza)
+- [Recomendaciones](#recomendaciones)
+- [Fuentes](#fuentes)
+
 ## Beneficios
 
 - Brinda la funcionalidad de Lazy Loading, la cual solo entrega el contenido en la medida que se solicita
@@ -35,11 +44,11 @@ npx create-next-app@latest
   import styles from "@/styles/Home.module.css";
 ```
 
-2. Eliminar el contenido de la etiqueta <main>
+2. Eliminar el contenido de la etiqueta \<main>
 
-3. Eliminar la propiedad className de la etiqueta <main>
+3. Eliminar la propiedad className de la etiqueta \<main>
 
-4. Actualizar los metadatos de la componente <Head>
+4. Actualizar los metadatos de la componente \<Head>
 
 5. Eliminar el archivo con la siguiente ruta: styles/Home.module.css
 
