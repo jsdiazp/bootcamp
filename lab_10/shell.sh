@@ -150,10 +150,33 @@ brew install zoxide
 echo '# zoxide'
 echo 'eval "$(zoxide init zsh)"' >>~/.zshrc
 
-# Vim
+# tmux
+
+## Instalación
+brew install tmux
 
 ## Configuración
-wget https://raw.githubusercontent.com/jsdiazp/bootcamp/HEAD/lab_10/.vimrc -O ~/.vimrc
+echo 'alias tm="tmux attach || tmux"' >>~/.zshrc
+
+# dotfiles
+
+## Pre-configuración
+mkdir -p /tmp/bootcamp
+wget https://github.com/jsdiazp/bootcamp.git /tmp/bootcamp
+
+## Alacritty
+mkdir -p ~/.config/alacritty
+cp /tmp/bootcamp/lab_10/alacritty.toml ~/.config/alacritty/alacritty.toml
+
+## tmux
+cp /tmp/bootcamp/lab_10/.tmux.conf ~/.tmux.conf
+
+## Vim
+cp /tmp/bootcamp/lab_10/.vimrc ~/.vimrc
+cp -r /tmp/bootcamp/lab_10/vim/plugins ~/.config/vim/plugins
+
+## Post-configuración
+rm -rf /tmp/bootcamp
 
 # Activar shell zsh
 chsh -s /bin/zsh
