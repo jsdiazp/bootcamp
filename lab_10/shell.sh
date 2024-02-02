@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Shell
 # Interfaz para interactuar con el sistema operativo
 
@@ -51,12 +52,23 @@ echo 'ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)\n' >>~/.zshrc
 # Activación de plugins de ZSH
 case "$(uname -s)" in
 Darwin*)
-  sed -i'' -e 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
+  sed -i'' -e 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)/' ~/.zshrc
   ;;
 Linux*)
-  sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
+  sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)/' ~/.zshrc
   ;;
 esac
+
+# zsh-nvm (https://github.com/lukechilds/zsh-nvm)
+# Gestor de versiones para Node.js
+
+## Instalación
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+
+## Activación
+source ~/.zshrc
+nvm install --lts --latest-npm
+nvm use --lts
 
 # Homebrew (https://brew.sh)
 # Gestor de paquetes
@@ -86,18 +98,21 @@ case "$(uname -s)" in
 Darwin*)
   case "$(uname -m)" in
   arm64 | aarch64)
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    breweval="\$(/opt/homebrew/bin/brew shellenv)"
+    eval $breweval
     ;;
   x86_64)
-    eval "$(/usr/local/homebrew/bin/brew shellenv)"
+    breweval="\$(/usr/local/homebrew/bin/brew shellenv)"
+    eval $breweval
     ;;
   esac
   ;;
 Linux*)
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  breweval="\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  eval $breweval
   ;;
 esac
-echo "eval \"\$($HOMEBREW_REPOSITORY/bin/brew shellenv)\"\n" >>~/.zshrc
+echo "eval \"$breweval\"\n" >>~/.zshrc
 
 # Starship (https://starship.rs)
 # Mejora el prompt (interfaz de entrada) de la terminal
@@ -108,6 +123,11 @@ brew install starship
 ## Configuración
 echo '# Starship' >>~/.zshrc
 echo 'eval "$(starship init zsh)"\n' >>~/.zshrc
+
+## Pre-ajustes
+eval "$(starship init zsh)"
+[[ ! -e ~/.config ]] && mkdir ~/.config
+starship preset gruvbox-rainbow -o ~/.config/starship.toml
 
 # The Fuck (https://github.com/nvbn/thefuck)
 # Sugiere correcciones en comando previo
@@ -150,13 +170,26 @@ brew install zoxide
 echo '# zoxide'
 echo 'eval "$(zoxide init zsh)"' >>~/.zshrc
 
-# tmux
+# tmux (https://github.com/tmux/tmux)
+# Multiplexor de terminal
 
 ## Instalación
 brew install tmux
 
 ## Configuración
 echo 'alias tm="tmux attach || tmux"' >>~/.zshrc
+
+# btop++ (https://github.com/aristocratos/btop)
+# Monitor de recursos
+
+# Instalación
+brew instal btop
+
+# Alacritty (https://github.com/alacritty/alacritty)
+
+## Tema
+mkdir -p ~/.config/alacritty
+curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
 
 # dotfiles
 
@@ -165,15 +198,16 @@ mkdir -p /tmp/bootcamp
 git clone https://github.com/jsdiazp/bootcamp.git /tmp/bootcamp
 
 ## Alacritty
-mkdir -p ~/.config/alacritty
 cp /tmp/bootcamp/lab_10/alacritty.toml ~/.config/alacritty/alacritty.toml
+[[ "$(uname -s)" != Darwin* ]] && sed -i 's/decorations = "Transparent"/decorations = "None"/' ~/.config/alacritty/alacritty.toml
 
 ## tmux
 cp /tmp/bootcamp/lab_10/.tmux.conf ~/.tmux.conf
 
 ## Vim
+mkdir -p ~/.config/vim/plugins
 cp /tmp/bootcamp/lab_10/.vimrc ~/.vimrc
-cp -r /tmp/bootcamp/lab_10/vim/plugins ~/.config/vim/plugins
+cp /tmp/bootcamp/lab_10/vim/plugins/* ~/.config/vim/plugins
 
 ## Post-configuración
 rm -rf /tmp/bootcamp
