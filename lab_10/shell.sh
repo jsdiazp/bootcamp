@@ -162,7 +162,7 @@ echo 'alias tm="tmux attach || tmux"' >>~/.zshrc
 
 ## Pre-configuración
 mkdir -p /tmp/bootcamp
-wget https://github.com/jsdiazp/bootcamp.git /tmp/bootcamp
+git clone https://github.com/jsdiazp/bootcamp.git /tmp/bootcamp
 
 ## Alacritty
 mkdir -p ~/.config/alacritty
