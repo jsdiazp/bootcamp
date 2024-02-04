@@ -99,20 +99,72 @@ Darwin*)
   case "$(uname -m)" in
   arm64 | aarch64)
     breweval="\$(/opt/homebrew/bin/brew shellenv)"
-    eval $breweval
     ;;
   x86_64)
-    breweval="\$(/usr/local/homebrew/bin/brew shellenv)"
-    eval $breweval
+    breweval="\$(/usr/local/bin/brew shellenv)"
     ;;
   esac
   ;;
 Linux*)
   breweval="\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  eval $breweval
   ;;
 esac
 echo "eval \"$breweval\"\n" >>~/.zshrc
+
+## Post-configuración
+source ~/.zshrc
+
+# Alacritty (https://github.com/alacritty/alacritty)
+
+## Tema
+mkdir -p ~/.config/alacritty
+curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+
+# Bat (https://github.com/sharkdp/bat)
+# Muestra el contenido de un archivo resaltado y formateado
+brew install bat
+
+## Ubuntu
+if [[ "$(uname -s)" == Linux* ]]; then
+  echo '# bat' >>~/.zshrc
+  echo 'alias bat=batcat\n' >>~/.zshrc
+fi
+
+# btop++ (https://github.com/aristocratos/btop)
+# Monitor de recursos
+
+# Instalación
+brew instal btop
+
+# Bun (https://github.com/oven-sh/bun)
+# Runtime de JavaScript
+
+## Instalación
+brew tap oven-sh/bun
+brew install bun
+
+# fzf (https://github.com/junegunn/fzf)
+# Mejora la funcionalidad de <C-r> y <C-t>
+
+## Instalación
+brew install fzf
+
+## Configuración
+echo '# fzf' >>~/.zshrc
+echo '[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh\n' >>~/.zshrc
+$HOMEBREW_PREFIX/opt/fzf/install --all
+
+# lsd (https://github.com/lsd-rs/lsd)
+# La siguiente generación del comando 'ls'
+brew install lsd
+
+# neofetch (https://github.com/dylanaraps/neofetch)
+# Despliega información del sistema
+brew install neofetch
+
+# ripgrep (https://github.com/BurntSushi/ripgrep)
+# Busca recursivamente en directorios un patrón regex respetando los gitignore
+brew install ripgrep
 
 # Starship (https://starship.rs)
 # Mejora el prompt (interfaz de entrada) de la terminal
@@ -139,26 +191,21 @@ brew install thefuck
 echo '# The Fuck' >>~/.zshrc
 echo 'eval $(thefuck --alias)\n' >>~/.zshrc
 
-# Bat (https://github.com/sharkdp/bat)
-# Muestra el contenido de un archivo resaltado y formateado
-brew install bat
+# tmux (https://github.com/tmux/tmux)
+# Multiplexor de terminal
 
-## Ubuntu
-if [[ "$(uname -s)" == Linux* ]]; then
-  echo '# bat' >>~/.zshrc
-  echo 'alias bat=batcat\n' >>~/.zshrc
-fi
-
-# fzf (https://github.com/junegunn/fzf)
-# Mejora la funcionalidad de <C-r> y <C-t>
+# Pre-configuración
+[[ -e ~/.tmux ]] && rm -rf ~/.tmux
 
 ## Instalación
-brew install fzf
+brew install tmux
 
 ## Configuración
-echo '# fzf' >>~/.zshrc
-echo '[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh' >>~/.zshrc
-$HOMEBREW_PREFIX/opt/fzf/install --all
+echo '# tmux' >>~/.zshrc
+echo 'alias tm="tmux attach || tmux"\n' >>~/.zshrc
+
+## tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # zoxide (https://github.com/ajeetdsouza/zoxide)
 # Comando cd más inteligente, inspirado en z y autojump
@@ -167,29 +214,8 @@ $HOMEBREW_PREFIX/opt/fzf/install --all
 brew install zoxide
 
 ## Configuración
-echo '# zoxide'
-echo 'eval "$(zoxide init zsh)"' >>~/.zshrc
-
-# tmux (https://github.com/tmux/tmux)
-# Multiplexor de terminal
-
-## Instalación
-brew install tmux
-
-## Configuración
-echo 'alias tm="tmux attach || tmux"' >>~/.zshrc
-
-# btop++ (https://github.com/aristocratos/btop)
-# Monitor de recursos
-
-# Instalación
-brew instal btop
-
-# Alacritty (https://github.com/alacritty/alacritty)
-
-## Tema
-mkdir -p ~/.config/alacritty
-curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+echo '# zoxide' >>~/.zshrc
+echo 'eval "$(zoxide init zsh)"\n' >>~/.zshrc
 
 # dotfiles
 
