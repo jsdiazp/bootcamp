@@ -29,27 +29,27 @@ fi
 ## Instalación
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-# ZSH Autosuggestions (https://github.com/zsh-users/zsh-autosuggestion)
-# Sugiere comandos a medida que se escribe basándose en el historial y en los completados
+## ZSH Autosuggestions (https://github.com/zsh-users/zsh-autosuggestion)
+## Sugiere comandos a medida que se escribe basándose en el historial y en los completados
 
-## Instalación
+### Instalación
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-## Configuración
+### Configuración
 echo '\n# ZSH Autosuggestions' >>~/.zshrc
 echo 'ZSH_AUTOSUGGEST_STRATEGY=(history completion)\n' >>~/.zshrc
 
-# ZSH Syntax Hightlighting (https://github.com/zsh-users/zsh-syntax-highlighting)
-# Resaltado de comandos
+## ZSH Syntax Hightlighting (https://github.com/zsh-users/zsh-syntax-highlighting)
+## Resaltado de comandos
 
-## Instalación
+### Instalación
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-## Configuración
+### Configuración
 echo '# ZSH Syntax Highlighting' >>~/.zshrc
 echo 'ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)\n' >>~/.zshrc
 
-# Activación de plugins de ZSH
+## Activación de plugins de ZSH
 case "$(uname -s)" in
 Darwin*)
   sed -i'' -e 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)/' ~/.zshrc
@@ -123,12 +123,6 @@ curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritt
 # Bat (https://github.com/sharkdp/bat)
 # Muestra el contenido de un archivo resaltado y formateado
 brew install bat
-
-## Ubuntu
-if [[ "$(uname -s)" == Linux* ]]; then
-  echo '# bat' >>~/.zshrc
-  echo 'alias bat=batcat\n' >>~/.zshrc
-fi
 
 # btop++ (https://github.com/aristocratos/btop)
 # Monitor de recursos
