@@ -137,6 +137,12 @@ brew instal btop
 brew tap oven-sh/bun
 brew install bun
 
+# fd (https://github.com/sharkdp/fd)
+# Una alternativa a "find" sencilla, rápida y fácil de usar
+
+## Instalación
+brew install fd
+
 # fzf (https://github.com/junegunn/fzf)
 # Mejora la funcionalidad de <C-r> y <C-t>
 
