@@ -83,7 +83,7 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory
     ## Configuración
     Write-Output "# lsd
 if (-Not (Test-Path alias:l)) {
-    function L_ALIAS { lsd -la `$args }
+    function L_ALIAS { lsd --blocks permission,size,date,name -la `$args }
     New-Alias l L_ALIAS
 }`n" >>$PROFILE
 
