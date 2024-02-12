@@ -68,6 +68,12 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete`n" >>$PROFILE
     Write-Output "# fzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'`n" >>$PROFILE
 
+    # Git
+    # Sistema de control de versionamientos
+
+    ## Instalación
+    winget install --id Git.Git
+
     # lsd (https://github.com/lsd-rs/lsd)
     # Siguiente generación del comando 'ls'
 
