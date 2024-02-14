@@ -181,6 +181,7 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })`n" >>$PROFILE
 
   if ($openWindowsTab -eq "y") {
     wt --window 0 new-tab
+    exit
   }
 }
 
