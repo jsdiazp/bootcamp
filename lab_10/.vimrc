@@ -29,14 +29,15 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+" Activa la corrección ortográfica, y si hace falta, solicita descargar lenguajes faltantes
+autocmd VimEnter * ++once ++nested set spell spelllang=en,es
+
 " Requerido
 source $VIMRUNTIME/defaults.vim " Llama la configuración predefinida de VIM
 set nocompatible " Inhabilita la compatibilidad con vi
 set hidden " Oculta el buffer cuando se abandona, manteniendo los cambios
 set undofile " Guarda el historial de cambios en un archivo
 set autoread " Cuando se detecta el cambio de un archivo fuera de Vim y este no ha sido cambiado dentro de Vim, automáticamente se lee de nuevo el archivo
-set spell " Activa la corrección ortográfica
-set spelllang=en,es " Corrección ortográfica para español e inglés
 set encoding=utf-8 " Establece la codificación de caracteres utilizada en Vim
 set timeoutlen=500 " Estable el tiempo en milisegundos que se espera para completar un código de tecla o un secuencia de teclas
 let g:mapleader = "\<Space>"
@@ -109,4 +110,3 @@ source ~/.config/vim/plugins/vim-devicons.vim
 source ~/.config/vim/plugins/vim-which-key.vim
 source ~/.config/vim/plugins/nerdtree.vim
 source ~/.config/vim/plugins/coc.vim
-
